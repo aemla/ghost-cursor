@@ -130,7 +130,7 @@ const getElementBox = async (
 
     return elementBox
   } catch (_) {
-    console.debug('Quads not found, trying regular boundingBox')
+    //console.debug('Quads not found, trying regular boundingBox')
     return await element.boundingBox()
   }
 }
@@ -224,7 +224,7 @@ export const createCursor = (
         // Exit function if the browser is no longer connected
         if (!page.browser().isConnected()) return
 
-        console.debug('Warning: could not move mouse, error message:', error)
+        //console.debug('Warning: could not move mouse, error message:', error)
       }
     }
   }
@@ -246,7 +246,7 @@ export const createCursor = (
         (_) => {}
       ) // fire and forget, recursive function
     } catch (_) {
-      console.debug('Warning: stopping random mouse movements')
+      //console.debug('Warning: stopping random mouse movements')
     }
   }
 
@@ -273,7 +273,7 @@ export const createCursor = (
         }
         await page.mouse.up()
       } catch (error) {
-        console.debug('Warning: could not click mouse, error message:', error)
+        //console.debug('Warning: could not click mouse, error message:', error)
       }
 
       if (options?.moveDelay !== undefined && options.moveDelay >= 0) {
@@ -329,7 +329,7 @@ export const createCursor = (
             })
           } catch (e) {
             // use regular JS scroll method as a fallback
-            console.debug('Falling back to JS scroll method', e)
+            //console.debug('Falling back to JS scroll method', e)
             await elem.evaluate((e) => e.scrollIntoView({ behavior: 'smooth' }))
             await new Promise((resolve) => setTimeout(resolve, 2000)) // Wait a bit until the scroll has finished
           }
